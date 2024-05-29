@@ -1,0 +1,6 @@
+# To read the variables from .env into pkr.hcl file
+export $(grep -v '^#' .env | xargs)
+
+---
+# to avoid pushing .gitignore file into repo
+find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
