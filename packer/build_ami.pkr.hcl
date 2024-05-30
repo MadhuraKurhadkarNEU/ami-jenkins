@@ -32,10 +32,10 @@ variable "vpc_id" {
   default = env("VPC_ID")
 }
 
-// variable "subnet_id" {
-//   type    = string
-//   default = env("SUBNET_ID")
-// }
+variable "subnet_id" {
+  type    = string
+  default = env("SUBNET_ID")
+}
 
 source "amazon-ebs" "jenkins-ami" {
   region          = var.aws_region
@@ -52,8 +52,8 @@ source "amazon-ebs" "jenkins-ami" {
   instance_type = "t2.micro"
   source_ami    = var.source_ami
   ssh_username  = var.ssh_username
-  vpc_id          = var.vpc_id
-  // subnet_id       = var.subnet_id
+  vpc_id        = var.vpc_id
+  subnet_id     = var.subnet_id
 
   launch_block_device_mappings {
     delete_on_termination = true
