@@ -27,6 +27,16 @@ variable "aws_root_account_id" {
   default = env("AWS_ROOT_ACCOUNT_ID")
 }
 
+variable "vpc_id" {
+  type    = string
+  default = env("VPC_ID")
+}
+
+// variable "subnet_id" {
+//   type    = string
+//   default = env("SUBNET_ID")
+// }
+
 source "amazon-ebs" "jenkins-ami" {
   region          = var.aws_region
   ami_name        = "JenkinsAMI_${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
@@ -42,6 +52,8 @@ source "amazon-ebs" "jenkins-ami" {
   instance_type = "t2.micro"
   source_ami    = var.source_ami
   ssh_username  = var.ssh_username
+  vpc_id          = var.vpc_id
+  // subnet_id       = var.subnet_id
 
   launch_block_device_mappings {
     delete_on_termination = true
