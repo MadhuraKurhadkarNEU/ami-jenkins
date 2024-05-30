@@ -4,3 +4,35 @@ export $(grep -v '^#' .env | xargs)
 ---
 # to avoid pushing .gitignore file into repo
 find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+
+---
+To create a default VPC using the console
+Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+In the navigation pane, choose Your VPCs.
+
+Choose Actions, Create Default VPC.
+
+Choose Create. Close the confirmation screen.
+
+To create a default VPC using the command line
+You can use the create-default-vpc AWS CLI command. This command does not have any input parameters.
+
+
+aws ec2 create-default-vpc
+The following is example output.
+
+{
+    "Vpc": {
+        "VpcId": "vpc-3f139646", 
+        "InstanceTenancy": "default", 
+        "Tags": [], 
+        "Ipv6CidrBlockAssociationSet": [], 
+        "State": "pending", 
+        "DhcpOptionsId": "dopt-61079b07", 
+        "CidrBlock": "172.31.0.0/16", 
+        "IsDefault": true
+    }
+}
+
+---
