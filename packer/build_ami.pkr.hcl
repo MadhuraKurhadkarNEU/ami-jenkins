@@ -22,7 +22,7 @@ variable "ssh_username" {
 variable "source_ami" {
   type = string
   // default = env("SOURCE_AMI")
-  default = "ami-04b70fa74e45c39171"
+  default = "ami-04b70fa74e45c3917"
 }
 
 variable "aws_root_account_id" {
