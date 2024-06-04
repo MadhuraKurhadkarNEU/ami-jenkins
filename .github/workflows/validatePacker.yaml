@@ -13,13 +13,12 @@ jobs:
         with:
           version: '1.8.x'
 
-      - name: Set environment variables
-        run: |
-          echo "AWS_REGION=${{ secrets.AWS_REGION }}" >> $GITHUB_ENV
-          echo "SSH_USERNAME=${{ secrets.SSH_USERNAME }}" >> $GITHUB_ENV
-          echo "SOURCE_AMI=${{ secrets.SOURCE_AMI }}" >> $GITHUB_ENV
-          echo "AWS_ROOT_ACCOUNT_ID=${{ secrets.AWS_ROOT_ACCOUNT_ID }}" >> $GITHUB_ENV
-          # echo "VPC_ID=${{ secrets.VPC_ID }}" >> $GITHUB_ENV
+      # - name: Set environment variables
+      #   run: |
+      #     echo "AWS_REGION=${{ secrets.AWS_REGION }}" >> $GITHUB_ENV
+      #     echo "SSH_USERNAME=${{ secrets.SSH_USERNAME }}" >> $GITHUB_ENV
+      #     echo "SOURCE_AMI=${{ secrets.SOURCE_AMI }}" >> $GITHUB_ENV
+      #     echo "AWS_ROOT_ACCOUNT_ID=${{ secrets.AWS_ROOT_ACCOUNT_ID }}" >> $GITHUB_ENV
       
       - name: Run Packer init
         run: packer init ./packer/build_ami.pkr.hcl

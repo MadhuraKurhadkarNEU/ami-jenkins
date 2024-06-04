@@ -9,33 +9,28 @@ packer {
 
 variable "aws_region" {
   type    = string
-  default = env("AWS_REGION")
+  // default = env("AWS_REGION")
+  default = "us-east-1"
 }
 
 variable "ssh_username" {
   type    = string
-  default = env("SSH_USERNAME")
+  // default = env("SSH_USERNAME")
+  default = "ubuntu"
 }
 
 variable "source_ami" {
   type    = string
-  default = env("SOURCE_AMI")
+  // default = env("SOURCE_AMI")
+  default = "ami-04b70fa74e45c39171"
 }
 
 variable "aws_root_account_id" {
   type    = string
-  default = env("AWS_ROOT_ACCOUNT_ID")
+  // default = env("AWS_ROOT_ACCOUNT_ID")
+  default = "523515574467"
 }
 
-// variable "vpc_id" {
-//   type    = string
-//   default = env("VPC_ID")
-// }
-
-// variable "subnet_id" {
-//   type    = string
-//   default = env("SUBNET_ID")
-// }
 
 source "amazon-ebs" "jenkins-ami" {
   region          = var.aws_region
@@ -52,8 +47,6 @@ source "amazon-ebs" "jenkins-ami" {
   instance_type = "t2.micro"
   source_ami    = var.source_ami
   ssh_username  = var.ssh_username
-  // vpc_id        = var.vpc_id
-  // subnet_id     = var.subnet_id
 
   launch_block_device_mappings {
     delete_on_termination = true
