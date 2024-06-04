@@ -8,25 +8,25 @@ packer {
 }
 
 variable "aws_region" {
-  type    = string
+  type = string
   // default = env("AWS_REGION")
   default = "us-east-1"
 }
 
 variable "ssh_username" {
-  type    = string
+  type = string
   // default = env("SSH_USERNAME")
   default = "ubuntu"
 }
 
 variable "source_ami" {
-  type    = string
+  type = string
   // default = env("SOURCE_AMI")
   default = "ami-04b70fa74e45c39171"
 }
 
 variable "aws_root_account_id" {
-  type    = string
+  type = string
   // default = env("AWS_ROOT_ACCOUNT_ID")
   default = "523515574467"
 }
