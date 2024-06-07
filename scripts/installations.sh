@@ -44,10 +44,11 @@ sudo apt install caddy -y
 sudo sed -i 's/# reverse_proxy localhost:8080/reverse_proxy localhost:8080/g' /etc/caddy/Caddyfile
 
 echo "================================="
-echo "Starting Caddy"
-echo "================================="
+echo "Starting Caddy..."
 sudo systemctl start caddy
 sudo systemctl enable caddy
+echo "Caddy Started by system ..."
+echo "================================="
 
 # Jenkins Configuration
 echo "=========================="
