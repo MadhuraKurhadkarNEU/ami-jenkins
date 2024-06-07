@@ -1,1 +1,1 @@
-# build-ami-jenkins
+# ami-jenkins

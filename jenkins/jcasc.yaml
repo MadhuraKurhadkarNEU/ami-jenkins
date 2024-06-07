@@ -1,0 +1,38 @@
+jenkins:
+  systemMessage: "Jenkins Instance"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "123456"
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated" 
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: github_token
+              username: ${USER_GITHUB}
+              password: ${PASSWORD_GITHUB}
+              description: "GitHub token for Jenkins"
+          
+          - usernamePassword:
+              scope: GLOBAL
+              id: dockerhub
+              username: ${USER_DOCKER}
+              password: ${DOCKER_ACCESS_TOKEN}
+              description: "DockerHub token for Jenkins"
+
+jobs:
+  - file: /var/lib/jenkins/multibranch-pipeline.groovy
+
+unclassified:
+  location:
+    url: https://jenkins.talentofpainting.info
