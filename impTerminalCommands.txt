@@ -36,3 +36,5 @@ The following is example output.
 }
 
 ---
+$USER_GITHUB / $PASSWORD_GITHUB
+$USER_DOCKER / $DOCKER_ACCESS_TOKEN
