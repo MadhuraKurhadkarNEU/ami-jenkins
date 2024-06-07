@@ -31,6 +31,12 @@ jobs:
           tar -czvf configs.tgz jcasc.yaml *.groovy
           rm -rf jcasc.yaml *.groovy
 
+
+      - name: Setup packer
+        uses: hashicorp/setup-packer@main
+        with:
+            version: '1.8.x'
+        
       - name: Packer init
         run: packer init ./packer/build_ami.pkr.hcl
 
