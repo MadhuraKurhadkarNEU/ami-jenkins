@@ -24,24 +24,13 @@ jobs:
         with:
           version: '1.8.x'
 
-      - name: Set environment variables
+      - name: Jenkins Configuration as Code artifacts
         run: |
-          echo "AWS_REGION=${{ secrets.AWS_REGION }}" >> $GITHUB_ENV
-          echo "SSH_USERNAME=${{ secrets.SSH_USERNAME }}" >> $GITHUB_ENV
-          echo "SOURCE_AMI=${{ secrets.SOURCE_AMI }}" >> $GITHUB_ENV
-          echo "AWS_ROOT_ACCOUNT_ID=${{ secrets.AWS_ROOT_ACCOUNT_ID }}" >> $GITHUB_ENV
-          - name: Jenkins Configuration as Code artifacts
-          run: |
-            cd jenkins && cp jcasc.yaml ../ && cd ..
-            cd scripts  && cp *.groovy ../ && cd ..
-            tar -czvf configs.tgz jcasc.yaml *.groovy
-            rm -rf jcasc.yaml *.groovy
+          cd jenkins && cp jcasc.yaml ../ && cd ..
+          cd scripts  && cp *.groovy ../ && cd ..
+          tar -czvf configs.tgz jcasc.yaml *.groovy
+          rm -rf jcasc.yaml *.groovy
 
-      - name: Setup packer
-        uses: hashicorp/setup-packer@main
-        with:
-            version: '1.8.x'
-        
       - name: Packer init
         run: packer init ./packer/build_ami.pkr.hcl
 
