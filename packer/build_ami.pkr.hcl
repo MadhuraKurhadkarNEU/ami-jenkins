@@ -59,14 +59,14 @@ source "amazon-ebs" "jenkins-ami" {
 build {
   sources = ["source.amazon-ebs.jenkins-ami"]
   provisioner "file" {
-      source      = "./jenkins/plugins.txt"
-      destination = "/home/ubuntu/plugins.txt"
-    }
+    source      = "./jenkins/plugins.txt"
+    destination = "/home/ubuntu/plugins.txt"
+  }
 
-    provisioner "file" {
-      source      = "./configs.tgz"
-      destination = "/home/ubuntu/configs.tgz"
-    }
+  provisioner "file" {
+    source      = "./configs.tgz"
+    destination = "/home/ubuntu/configs.tgz"
+  }
   provisioner "shell" {
     script = "./scripts/installations.sh"
     environment_vars = [
