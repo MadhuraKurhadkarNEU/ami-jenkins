@@ -27,7 +27,7 @@ jobs:
       - name: Jenkins Configuration as Code artifacts
         run: |
           cd jenkins && cp jcasc.yaml ../ && cd ..
-          cd scripts  && cp *.groovy ../ && cd ..
+          cd jenkins  && cp *.groovy ../ && cd ..
           tar -czvf configs.tgz jcasc.yaml *.groovy
           rm -rf jcasc.yaml *.groovy
 
