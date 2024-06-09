@@ -1,5 +1,5 @@
 pipelineJob('StaticSite-build') {
-    displayName('StaticSite Build')
+    displayName('Static-Site Build')
     description('Creates docker image with release on StaticSite repository')
     logRotator {
         daysToKeep(30)
