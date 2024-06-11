@@ -1,8 +1,12 @@
 name: Build-AMI-Packer
-
 on:
-  push:
-    branches: [ main ]
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+# on:
+#   push:
+#     branches: [ main ]
 
 jobs:
   ami-build:
