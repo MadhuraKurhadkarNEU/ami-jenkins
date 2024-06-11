@@ -19,15 +19,15 @@ credentials:
           - usernamePassword:
               scope: GLOBAL
               id: github_token
-              username: ${USER_GITHUB}
-              password: ${PASSWORD_GITHUB}
+              username: ${secrets.USER_GITHUB}
+              password: ${secrets.PASSWORD_GITHUB}
               description: "GitHub token for Jenkins"
           
           - usernamePassword:
               scope: GLOBAL
               id: dockerhub
-              username: ${USER_DOCKER}
-              password: ${DOCKER_ACCESS_TOKEN}
+              username: ${secrets.USER_DOCKER}
+              password: ${secrets.DOCKER_ACCESS_TOKEN}
               description: "DockerHub token for Jenkins"
 
 jobs:
